@@ -7,7 +7,7 @@ public class NavigationScript : MonoBehaviour
     [SerializeField] Transform gate;
     private NavMeshAgent agent;
     private Rikayon rikayon;
-    private int distanceAttack = 10;
+    private int distanceAttack = 5;
 
     private int tempHealth = 10;
 
@@ -29,15 +29,20 @@ public class NavigationScript : MonoBehaviour
         {
             if(distancePlayer < distanceAttack)
             {
+                rikayon.CanWalk();
+                transform.forward = player.position-transform.position;
                 Attack();
+            }
+            else
+            {
+                rikayon.CanAttack();
+                rikayon.Walk();
             }
         }
         else
         {
             agent.destination = gate.position;
         }
-
-        
     }
 
     private void Update()
