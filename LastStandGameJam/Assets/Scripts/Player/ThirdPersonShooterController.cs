@@ -11,7 +11,10 @@ public class ThirdPersonShooterController : MonoBehaviour
     [SerializeField] private float normalSensitivity;
     [SerializeField] private float aimSensitivity;
     [SerializeField] private LayerMask aimColliderMask;
+    [SerializeField] private Transform laserStartPoint;
     [SerializeField] private Transform aimTransform;
+
+    [SerializeField] private LineRenderer laser;
 
     private ThirdPersonController thirdPersonController;
     private StarterAssetsInputs starterAssetsInputs;
@@ -21,23 +24,38 @@ public class ThirdPersonShooterController : MonoBehaviour
         starterAssetsInputs= GetComponent<StarterAssetsInputs>();
         thirdPersonController= GetComponent<ThirdPersonController>();
         normalSensitivity = thirdPersonController.Sensitivity;
+        laser.positionCount= 2;
     }
     private void Update()
     {
+        Vector3 mouseWorldPosition = Vector3.zero;
         Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
         Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
         if(Physics.Raycast(ray, out RaycastHit hitInfo, 999f, aimColliderMask))
         {
             aimTransform.position = hitInfo.point;
+            mouseWorldPosition = hitInfo.point;
         }
         if (starterAssetsInputs.aim)
         {
             aimVirtualCamera.gameObject.SetActive(true);
+            laser.gameObject.SetActive(true);
+            laser.SetPosition(0, laserStartPoint.transform.position);
+            laser.SetPosition(1, aimTransform.position);
             thirdPersonController.Sensitivity = aimSensitivity;
+            thirdPersonController.SetRotateOnMove(false);
+
+            Vector3 worldAimTarget = mouseWorldPosition;
+            worldAimTarget.y = transform.position.y;
+            Vector3 aimDirection = (worldAimTarget-transform.position).normalized;
+
+            transform.forward = Vector3.Lerp(transform.forward,aimDirection,Time.deltaTime * 20f);
         }
         else
         {
             aimVirtualCamera.gameObject.SetActive(false);
+            thirdPersonController.SetRotateOnMove(true);
+            laser.gameObject.SetActive(false);
             thirdPersonController.Sensitivity = normalSensitivity;
         }
     }
