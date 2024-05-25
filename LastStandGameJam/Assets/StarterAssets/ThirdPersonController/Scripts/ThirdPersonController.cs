@@ -267,9 +267,10 @@ namespace StarterAssets
                 // rotate to face input direction relative to camera position
                 if (_rotateOnMove)
                 {
-                    Debug.Log("Pas censé bouger chef");
                     transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
                 }
+
+                
             }
 
 

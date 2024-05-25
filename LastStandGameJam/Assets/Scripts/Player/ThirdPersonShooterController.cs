@@ -18,12 +18,14 @@ public class ThirdPersonShooterController : MonoBehaviour
 
     private ThirdPersonController thirdPersonController;
     private StarterAssetsInputs starterAssetsInputs;
+    private Animator animator;
 
     private void Awake()
     {
         starterAssetsInputs= GetComponent<StarterAssetsInputs>();
         thirdPersonController= GetComponent<ThirdPersonController>();
         normalSensitivity = thirdPersonController.Sensitivity;
+        animator= GetComponent<Animator>();
         laser.positionCount= 2;
     }
     private void Update()
@@ -44,18 +46,22 @@ public class ThirdPersonShooterController : MonoBehaviour
             laser.SetPosition(1, aimTransform.position);
             thirdPersonController.Sensitivity = aimSensitivity;
             thirdPersonController.SetRotateOnMove(false);
+            animator.SetBool("Aiming", true);
+            animator.SetFloat("X", starterAssetsInputs.move.x);
+            animator.SetFloat("Y", starterAssetsInputs.move.y);
 
             Vector3 worldAimTarget = mouseWorldPosition;
             worldAimTarget.y = transform.position.y;
-            Vector3 aimDirection = (worldAimTarget-transform.position).normalized;
+            Vector3 aimDirection = (worldAimTarget - transform.position).normalized;
 
-            transform.forward = Vector3.Lerp(transform.forward,aimDirection,Time.deltaTime * 20f);
+            transform.forward = Vector3.Lerp(transform.forward, aimDirection ,Time.deltaTime * 20f);
         }
         else
         {
             aimVirtualCamera.gameObject.SetActive(false);
             thirdPersonController.SetRotateOnMove(true);
             laser.gameObject.SetActive(false);
+            animator.SetBool("Aiming", false);
             thirdPersonController.Sensitivity = normalSensitivity;
         }
     }
