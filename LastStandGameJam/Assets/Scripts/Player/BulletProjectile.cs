@@ -6,7 +6,11 @@ using UnityEngine;
 public class BulletProjectile : MonoBehaviour
 {
     private Rigidbody bulletRigidbody;
-    [SerializeField] private Transform vfxImpact;
+    [SerializeField] private Transform vfxFlash;
+    [SerializeField] private Transform vfxSparks;
+    [SerializeField] private Transform vfxFire;
+    [SerializeField] private Transform vfxSmoke;
+
 
     private void Awake()
     {
@@ -23,13 +27,11 @@ public class BulletProjectile : MonoBehaviour
     {
         if (other.GetComponent<BulletTarget>() != null)
         {
-            Instantiate(vfxImpact, transform.position, Quaternion.identity);
+            Instantiate(vfxSparks, transform.position, Quaternion.identity);
+            Instantiate(vfxFlash, transform.position, Quaternion.identity);
+            Instantiate(vfxFire, transform.position, Quaternion.identity);
+            Instantiate(vfxSmoke, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        else
-        {
-
-        }
-
     }
 }
