@@ -34,7 +34,7 @@ public class ThirdPersonShooterController : MonoBehaviour
     public bool CanOpenDoor = false;
 
     [Header("Outside infos known by the player")]
-    public PickableItem itemOnGroundLevel;
+    public PickableItem itemNearPlayer;
     public Door doorNearPlayer;
 
     private void Awake()
@@ -113,6 +113,8 @@ public class ThirdPersonShooterController : MonoBehaviour
             {
                 Debug.Log("Interaction ta maman");
                 animator.SetTrigger("Pickup");
+                Destroy(itemNearPlayer.gameObject);
+                itemNearPlayer = null;
             }
             else if (doorNearPlayer)
             {
