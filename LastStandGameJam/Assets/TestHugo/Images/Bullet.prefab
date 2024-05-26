@@ -98,6 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e89a182b4e2b70499d5c5d49021f448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vfxFlash: {fileID: 1130815458900447890, guid: 66ae091b1c4168e4887c76670b743eae, type: 3}
+  vfxSparks: {fileID: 7704732005798426872, guid: 5497be47ad4ebe840b10851d50cbe6a8, type: 3}
+  vfxFire: {fileID: 1397655406183475179, guid: 1fbadfbb7238f82459a7bd2fb8f3c43a, type: 3}
+  vfxSmoke: {fileID: 5214257421525591782, guid: cf9722fc8df436f4695aaaa9b7ea711c, type: 3}
 --- !u!54 &6212713462261519601
 Rigidbody:
   m_ObjectHideFlags: 0
