@@ -31,10 +31,11 @@ public class GrenadeProjectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Launch(float angle, float speed)
+    public void Launch(float angle, float speed, float anglePlayer)
     {
+        Debug.Log(anglePlayer);
         Vector3 launchVector = new Vector3(0, Mathf.Sin(2f * Mathf.PI / 360 * angle) * speed, Mathf.Cos(2f * Mathf.PI / 360 * angle) * speed);
-        _grenadeRigidbody.velocity = launchVector;
+        _grenadeRigidbody.velocity = Quaternion.AngleAxis(anglePlayer, Vector3.up) * launchVector;
     }
 
 }
