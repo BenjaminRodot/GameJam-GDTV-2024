@@ -3,45 +3,47 @@ using UnityEngine.AI;
 
 public class NavigationScript : MonoBehaviour
 {
-    [SerializeField] Transform player;
-    [SerializeField] Transform gate;
-    private NavMeshAgent agent;
-    private Rikayon rikayon;
-    private int distanceAttack = 5;
+    private Transform _player;
+    private Transform _gate;
+    private NavMeshAgent _agent;
+    private Rikayon _rikayon;
+    private int _distanceAttack = 5;
 
-    private int tempHealth = 10;
+    private int _tempHealth = 10;
 
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        rikayon = GetComponent<Rikayon>();
+        _agent = GetComponent<NavMeshAgent>();
+        _rikayon = GetComponent<Rikayon>();
+        _player = GameObject.FindWithTag("Player").transform;
+        _gate = GameObject.FindWithTag("Gate").transform;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         Vector3 position = transform.position;
-        float distancePlayer = Vector3.Magnitude(player.position - position);
-        float distanceGate = Vector3.Magnitude(gate.position - position);
-        agent.destination = player.position;
+        float distancePlayer = Vector3.Magnitude(_player.position - position);
+        float distanceGate = Vector3.Magnitude(_gate.position - position);
+        _agent.destination = _player.position;
         if (distancePlayer <= distanceGate)
         {
-            if(distancePlayer < distanceAttack)
+            if(distancePlayer < _distanceAttack)
             {
-                rikayon.CanWalk();
-                transform.forward = player.position-transform.position;
+                _rikayon.CanWalk();
+                transform.forward = _player.position-transform.position;
                 Attack();
             }
             else
             {
-                rikayon.CanAttack();
-                rikayon.Walk();
+                _rikayon.CanAttack();
+                _rikayon.Walk();
             }
         }
         else
         {
-            agent.destination = gate.position;
+            _agent.destination = _gate.position;
         }
     }
 
@@ -55,21 +57,21 @@ public class NavigationScript : MonoBehaviour
 
     private void Attack()
     {
-        rikayon.Attack1();
+        _rikayon.Attack1();
     }
 
     public void Damaged(int dmgValue)
     {
-        tempHealth -= dmgValue;
+        _tempHealth -= dmgValue;
 
-        if (tempHealth <= 0)
+        if (_tempHealth <= 0)
         {
-            agent.isStopped = true;
-            rikayon.Dead();
+            _agent.isStopped = true;
+            _rikayon.Dead();
         }
         else
         {
-            rikayon.TakeDamage();
+            _rikayon.TakeDamage();
         }
     }
 

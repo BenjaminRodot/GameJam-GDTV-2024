@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class BulletTarget : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private string type;
 
-    // Update is called once per frame
-    void Update()
+    public string GetType()
     {
-        
+        return type;
     }
 }
