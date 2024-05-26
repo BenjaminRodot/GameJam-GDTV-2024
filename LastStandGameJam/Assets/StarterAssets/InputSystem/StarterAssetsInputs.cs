@@ -15,6 +15,7 @@ namespace StarterAssets
 		public bool aim;
 		public bool shoot;
 		public bool interaction;
+		public bool grenade;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -61,6 +62,11 @@ namespace StarterAssets
 		{
 			InteractionInput(value.isPressed);
 		}
+
+		public void OnGrenade(InputValue value)
+		{
+			GrenadeInput(value.isPressed);
+		}
 #endif
 
 
@@ -97,6 +103,11 @@ namespace StarterAssets
 		public void InteractionInput(bool newInteractState)
 		{
 			interaction = newInteractState;
+		}
+
+		public void GrenadeInput(bool newGrenadeState)
+		{
+			grenade = newGrenadeState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)

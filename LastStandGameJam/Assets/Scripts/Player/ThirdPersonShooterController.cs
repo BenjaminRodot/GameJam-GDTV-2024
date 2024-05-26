@@ -4,6 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using StarterAssets;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class ThirdPersonShooterController : MonoBehaviour
 {
@@ -52,6 +53,7 @@ public class ThirdPersonShooterController : MonoBehaviour
         checkAim();
         checkShoot();
         checkInteract();
+        checkGrenade();
     }
 
     private void checkAim()
@@ -98,10 +100,14 @@ public class ThirdPersonShooterController : MonoBehaviour
             Vector3 aimDirection = (mouseWorldPosition - spawnBulletPosition.position).normalized;
             Instantiate(bulletProjectile, spawnBulletPosition.position,Quaternion.LookRotation(aimDirection,Vector3.up));
             starterAssetsInputs.shoot = false;
-        }
-        else
-        {
-            starterAssetsInputs.shoot = false;
+
+
+            thirdPersonController.SetRotateOnMove(false);
+            Vector3 worldAimTarget = mouseWorldPosition;
+            worldAimTarget.y = transform.position.y;
+            aimDirection = (worldAimTarget - transform.position).normalized;
+
+            transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
         }
     }
 
@@ -114,6 +120,7 @@ public class ThirdPersonShooterController : MonoBehaviour
                 Debug.Log("Interaction ta maman");
                 animator.SetTrigger("Pickup");
                 Destroy(itemNearPlayer.gameObject);
+                CanPickItem = false;
                 itemNearPlayer = null;
             }
             else if (doorNearPlayer)
@@ -137,6 +144,23 @@ public class ThirdPersonShooterController : MonoBehaviour
         }
 
         
+    }
+
+    private void checkGrenade()
+    {
+        if (starterAssetsInputs.grenade)
+        {
+            //Do grenade shit
+            animator.SetTrigger("Grenade");
+            starterAssetsInputs.grenade = false;
+
+            thirdPersonController.SetRotateOnMove(false);
+            Vector3 worldAimTarget = mouseWorldPosition;
+            worldAimTarget.y = transform.position.y;
+            Vector3 aimDirection = (worldAimTarget - transform.position).normalized;
+
+            transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
+        }
     }
 
     public void EndPickup()
