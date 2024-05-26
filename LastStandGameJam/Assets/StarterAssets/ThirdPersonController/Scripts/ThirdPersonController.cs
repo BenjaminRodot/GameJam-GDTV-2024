@@ -77,9 +77,7 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
-        [Header("Useful Bool")]
-        [Tooltip("If you're on top of a pickable item, should turn true")]
-        public bool CanPickItem = false;
+
 
         // cinemachine
         private float _cinemachineTargetYaw;

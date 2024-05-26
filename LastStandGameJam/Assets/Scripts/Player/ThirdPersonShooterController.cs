@@ -30,6 +30,9 @@ public class ThirdPersonShooterController : MonoBehaviour
     [Tooltip("If you're on top of a pickable item, should turn true")]
     public bool CanPickItem = false;
 
+    [Header("Outside infos known by the player")]
+    public PickableItem itemOnGroundLevel;
+
     private void Awake()
     {
         starterAssetsInputs= GetComponent<StarterAssetsInputs>();

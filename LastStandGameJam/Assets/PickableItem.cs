@@ -12,6 +12,7 @@ public class PickableItem : MonoBehaviour
         {
             Debug.Log("SOULÈVE MOI");
             other.GetComponent<ThirdPersonShooterController>().CanPickItem = true;
+            other.GetComponent<ThirdPersonShooterController>().itemOnGroundLevel = this;
         }
     }
 
@@ -21,6 +22,7 @@ public class PickableItem : MonoBehaviour
         {
             Debug.Log("TM'A PAS SOULEVÉ");
             other.GetComponent<ThirdPersonShooterController>().CanPickItem = false;
+            other.GetComponent<ThirdPersonShooterController>().itemOnGroundLevel = null;
         }
     }
 }
