@@ -11,6 +11,7 @@ public class NavigationScript : MonoBehaviour
     [SerializeField] private int _distanceAttack = 5;
     [SerializeField] private int _tempHealth = 10;
 
+
     // Start is called before the first frame update
     void Start()
     {

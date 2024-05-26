@@ -15,13 +15,5 @@ public class LaunchGrenade : MonoBehaviour
         Gizmos.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y + Mathf.Sin(Mathf.Deg2Rad * angle ) * speed, transform.position.z + Mathf.Cos(Mathf.Deg2Rad * angle) * speed)) ;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            GameObject newGrenade = Instantiate(_grenadePrefab, gameObject.transform);
-            newGrenade.GetComponent<GrenadeProjectile>().Launch(angle, speed*5);
-        }
-    }
+
 }

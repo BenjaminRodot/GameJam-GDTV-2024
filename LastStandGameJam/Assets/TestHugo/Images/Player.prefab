@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2127300458783814796}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.73149776, y: 1.6099999, z: -6.160659}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -317,6 +317,8 @@ MonoBehaviour:
   sprint: 0
   aim: 0
   shoot: 0
+  interaction: 0
+  grenade: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -435,6 +437,10 @@ MonoBehaviour:
   bulletProjectile: {fileID: 3848394470672982381, guid: 4096001825ac35641991e30de86a6778, type: 3}
   spawnBulletPosition: {fileID: 6917947609660172128}
   laser: {fileID: 5355298141223876991}
+  CanPickItem: 0
+  CanOpenDoor: 0
+  itemNearPlayer: {fileID: 0}
+  doorNearPlayer: {fileID: 0}
 --- !u!1 &2589054854818735828
 GameObject:
   m_ObjectHideFlags: 0
