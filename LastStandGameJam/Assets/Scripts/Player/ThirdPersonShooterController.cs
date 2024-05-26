@@ -30,8 +30,12 @@ public class ThirdPersonShooterController : MonoBehaviour
     [Tooltip("If you're on top of a pickable item, should turn true")]
     public bool CanPickItem = false;
 
+    [Tooltip("If you are near an opeanable door")]
+    public bool CanOpenDoor = false;
+
     [Header("Outside infos known by the player")]
     public PickableItem itemOnGroundLevel;
+    public Door doorNearPlayer;
 
     private void Awake()
     {
@@ -103,12 +107,34 @@ public class ThirdPersonShooterController : MonoBehaviour
 
     private void checkInteract()
     {
-        if(starterAssetsInputs.interaction && CanPickItem)
+        if (starterAssetsInputs.interaction)
         {
-            Debug.Log("Interaction ta maman");
-            animator.SetTrigger("Pickup");
+            if (CanPickItem)
+            {
+                Debug.Log("Interaction ta maman");
+                animator.SetTrigger("Pickup");
+            }
+            else if (doorNearPlayer)
+            {
+                animator.SetTrigger("Use");
+                if (doorNearPlayer.IsClosed)
+                {
+                    Debug.Log("OPEN THE DOOR");
+                    doorNearPlayer.OpenDoor();
+                    animator.SetTrigger("StopUse");
+                }
+                else
+                {
+                    Debug.Log("CLOSE THE DOOR");
+                    doorNearPlayer.CloseDoor();
+                    animator.SetTrigger("StopUse");
+                }
+                
+            }
             starterAssetsInputs.interaction = false;
         }
+
+        
     }
 
     public void EndPickup()
