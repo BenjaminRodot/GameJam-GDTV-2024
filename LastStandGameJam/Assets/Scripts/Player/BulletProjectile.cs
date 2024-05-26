@@ -12,7 +12,7 @@ public class BulletProjectile : MonoBehaviour
     [SerializeField] private Transform vfxFire;
     [SerializeField] private Transform vfxSmoke;
 
-    [SerializeField] private int _bulletDamage = 3;
+    [SerializeField] private int _bulletDamage = 6;
 
 
     private void Awake()
@@ -22,7 +22,7 @@ public class BulletProjectile : MonoBehaviour
 
     private void Start()
     {
-        float speed = 10f;
+        float speed = 100f;
         bulletRigidbody.velocity = transform.forward * speed;
     }
 

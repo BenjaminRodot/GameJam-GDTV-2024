@@ -7,9 +7,9 @@ public class NavigationScript : MonoBehaviour
     private Transform _gate;
     private NavMeshAgent _agent;
     private Rikayon _rikayon;
-    private int _distanceAttack = 5;
 
-    private int _tempHealth = 10;
+    [SerializeField] private int _distanceAttack = 5;
+    [SerializeField] private int _tempHealth = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -23,35 +23,35 @@ public class NavigationScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 position = transform.position;
-        float distancePlayer = Vector3.Magnitude(_player.position - position);
-        float distanceGate = Vector3.Magnitude(_gate.position - position);
-        _agent.destination = _player.position;
-        if (distancePlayer <= distanceGate)
+        if (_tempHealth >= 0)
         {
-            if(distancePlayer < _distanceAttack)
+            Vector3 position = transform.position;
+            float distancePlayer = Vector3.Magnitude(_player.position - position);
+            float distanceGate = Vector3.Magnitude(_gate.position - position);
+            _agent.destination = _player.position;
+            if (distancePlayer <= distanceGate)
             {
-                _rikayon.CanWalk();
-                transform.forward = _player.position-transform.position;
-                Attack();
+                if (distancePlayer < _distanceAttack)
+                {
+                    _rikayon.CanWalk();
+                    transform.forward = _player.position - transform.position;
+                    Attack();
+                }
+                else
+                {
+                    _rikayon.Walk();
+                    _rikayon.CanAttack();
+                }
             }
             else
             {
-                _rikayon.CanAttack();
                 _rikayon.Walk();
+                _agent.destination = _gate.position;
             }
         }
         else
         {
-            _agent.destination = _gate.position;
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Damaged(4);
+            _rikayon.Dead();
         }
     }
 
@@ -62,16 +62,19 @@ public class NavigationScript : MonoBehaviour
 
     public void Damaged(int dmgValue)
     {
+        Debug.Log("Touche");
         _tempHealth -= dmgValue;
 
         if (_tempHealth <= 0)
         {
+            _rikayon.ResetAnimBool();
             _agent.isStopped = true;
             _rikayon.Dead();
         }
         else
         {
             _rikayon.TakeDamage();
+            _rikayon.ResetAnimBool();
         }
     }
 
