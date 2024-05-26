@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmallDoor : MonoBehaviour
+public class SmallDoor : Door
 {
     [SerializeField]
     private GameObject _doorGameObject;
@@ -13,14 +13,6 @@ public class SmallDoor : MonoBehaviour
     [SerializeField]
     private GameObject _openedPosition;
 
-    private bool _isClosed;
-    private bool _isOpening;
-    private bool _isClosing;
-
-
-    public bool IsClosed => _isClosed;
-    public bool IsOpening => _isOpening;
-    public bool IsClosing => _isClosing;
 
     // Start is called before the first frame update
     void Awake()
@@ -66,12 +58,12 @@ public class SmallDoor : MonoBehaviour
         }
     }
 
-    public void OpenDoor()
+    public override void OpenDoor()
     {
         _isOpening = true;
     }
 
-    public void CloseDoor()
+    public override void CloseDoor()
     {
         _isClosing = true;
     }
