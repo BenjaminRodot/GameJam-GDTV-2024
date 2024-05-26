@@ -31,6 +31,7 @@ MonoBehaviour:
   _rangedDamageBonus: 1
   _rangedAccuracyBonus: 1
   _meleeAccuracyBonus: 1
+  _priorityTarget: []
   _battleCry: ...
   _abilities: []
   _traits: []
