@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEditor.TerrainTools;
 using UnityEngine;
@@ -8,7 +9,8 @@ using UnityEngine;
 public class ItemDataEditor : Editor
 {
     private SerializedProperty _name;
-    private SerializedProperty _type;
+    private SerializedProperty _typeOfItem;
+    private SerializedProperty _typeOfWeapon;
     private SerializedProperty _description;
     private SerializedProperty _isEquipable;
     private SerializedProperty _isStackable;
@@ -18,10 +20,21 @@ public class ItemDataEditor : Editor
     private SerializedProperty _baseRange;
     private SerializedProperty _baseAccuracy;
 
+    public SerializedProperty _baseMagazineSize;
+    public SerializedProperty _basePelletsPerShot;
+    public SerializedProperty _baseBulletsPerShot;
+    public SerializedProperty _rateOfFire;
+    public SerializedProperty _firingCooldown;
+    public SerializedProperty _spread;
+    public SerializedProperty _weaponShootingType;
+
     private SerializedProperty _baseDefense;
 
     private SerializedProperty _food;
     private SerializedProperty _water;
+
+    private SerializedProperty _shootingAudio;
+    private SerializedProperty _relaodingAudio;
 
     private GUIStyle _sectionLabel;
     private GUIStyle _titleLabel;
@@ -42,7 +55,8 @@ public class ItemDataEditor : Editor
 
         //general
         _name = serializedObject.FindProperty("_name");
-        _type = serializedObject.FindProperty("_type");
+        _typeOfItem = serializedObject.FindProperty("_typeOfItem");
+        _typeOfWeapon = serializedObject.FindProperty("_typeOfWeapon");
         _description = serializedObject.FindProperty("_description");
         _isEquipable = serializedObject.FindProperty("_isEquipable");
         _isStackable = serializedObject.FindProperty("_isStackable");
@@ -53,12 +67,25 @@ public class ItemDataEditor : Editor
         _baseRange = serializedObject.FindProperty("_baseRange");
         _baseAccuracy = serializedObject.FindProperty("_baseAccuracy");
 
+        //Gun
+        _baseMagazineSize = serializedObject.FindProperty("_baseMagazineSize");
+        _basePelletsPerShot = serializedObject.FindProperty("_basePelletsPerShot");
+        _baseBulletsPerShot = serializedObject.FindProperty("_baseBulletsPerShot");
+        _rateOfFire = serializedObject.FindProperty("_rateOfFire");
+        _firingCooldown = serializedObject.FindProperty("_firingCooldown");
+        _spread = serializedObject.FindProperty("_spread");
+        _weaponShootingType = serializedObject.FindProperty("_weaponShootingType");
+
         //armor
         _baseDefense = serializedObject.FindProperty("_baseDefense");
 
         //ressource
         _food = serializedObject.FindProperty("_food");
         _water = serializedObject.FindProperty("_water");
+
+        //Audio
+        _shootingAudio = serializedObject.FindProperty("_shootingAudio");
+        _relaodingAudio = serializedObject.FindProperty("_relaodingAudio");
     }
 
     public override void OnInspectorGUI() 
@@ -77,15 +104,15 @@ public class ItemDataEditor : Editor
             EditorGUILayout.HelpBox("Caution: No name specified. Please name the entity!", MessageType.Warning);
         }
 
-        EditorGUILayout.PropertyField(_type, new GUIContent("Item type"));
+        EditorGUILayout.PropertyField(_typeOfItem, new GUIContent("Item type"));
         EditorGUILayout.PropertyField(_description, new GUIContent("Description"));
-        if(_type.intValue == 1 || _type.intValue == 2 || _type.intValue == 3)
+        if(_typeOfItem.intValue == 1 || _typeOfItem.intValue == 2 || _typeOfItem.intValue == 3)
         {
             EditorGUILayout.Space(5);
             EditorGUILayout.PropertyField(_isEquipable, new GUIContent("Can it be equipped?"));
         }
 
-        if (_type.intValue == 3 || _type.intValue == 4)
+        if (_typeOfItem.intValue == 3 || _typeOfItem.intValue == 4)
         {
             EditorGUILayout.Space(5);
             EditorGUILayout.PropertyField(_isStackable, new GUIContent("Is it stackable?"));
@@ -96,24 +123,53 @@ public class ItemDataEditor : Editor
             }
         }
 
-        if(_type.intValue == 1 && _isEquipable.boolValue)
+        if(_typeOfItem.intValue == 1 && _isEquipable.boolValue)
         {
+            EditorGUILayout.Space(10);
+            EditorGUILayout.PropertyField(_typeOfWeapon, new GUIContent("Weapon type"));
+
             EditorGUILayout.Space(5);
             EditorGUILayout.LabelField("Weapon stats", _sectionLabel);
             EditorGUILayout.Space(5);
-            EditorGUILayout.PropertyField(_baseDamage, new GUIContent("Base Damage"));
-            EditorGUILayout.PropertyField(_baseRange, new GUIContent("Base Range"));
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("Base accuracy");
-            _baseAccuracy.floatValue = EditorGUILayout.Slider(
-                        _baseAccuracy.floatValue,
-                        0f,
-                        1f
-                );
-            EditorGUILayout.EndHorizontal();
+
+            switch (_typeOfWeapon.enumValueIndex)
+            {
+                case (int)WeaponType.Gun:
+                {
+                    EditorGUILayout.PropertyField(_baseDamage, new GUIContent("Base damage"));
+                    EditorGUILayout.PropertyField(_baseRange, new GUIContent("Base range"));
+
+                    EditorGUILayout.PropertyField(_baseMagazineSize, new GUIContent("Base magazine size"));
+                    EditorGUILayout.PropertyField(_basePelletsPerShot, new GUIContent("Base pellets per shot"));
+                    EditorGUILayout.PropertyField(_baseBulletsPerShot, new GUIContent("Base bullets per shot"));
+                    EditorGUILayout.PropertyField(_rateOfFire, new GUIContent("Rate of fire"));
+                    EditorGUILayout.PropertyField(_firingCooldown, new GUIContent("Cooldown between shots"));
+                    EditorGUILayout.PropertyField(_spread, new GUIContent("Amount of spread"));
+                    EditorGUILayout.PropertyField(_weaponShootingType, new GUIContent("Type of shooting"));
+
+                    EditorGUILayout.PropertyField(_shootingAudio, new GUIContent("Sound while shooting"));
+                    EditorGUILayout.PropertyField(_relaodingAudio, new GUIContent("Sound for reloading"));
+                    break;
+                }
+                case (int)WeaponType.Sword:
+                {
+                    EditorGUILayout.PropertyField(_baseDamage, new GUIContent("Base damage"));
+                    EditorGUILayout.PropertyField(_baseRange, new GUIContent("Base range"));
+                    EditorGUILayout.BeginHorizontal();
+                    EditorGUILayout.LabelField("Base accuracy");
+                    _baseAccuracy.floatValue = EditorGUILayout.Slider(
+                                _baseAccuracy.floatValue,
+                                0f,
+                                1f
+                        );
+                    EditorGUILayout.EndHorizontal();
+
+                    break;
+                }
+            }
         }
 
-        if (_type.intValue == 2 && _isEquipable.boolValue)
+        if (_typeOfItem.intValue == 2 && _isEquipable.boolValue)
         {
             EditorGUILayout.Space(5);
             EditorGUILayout.LabelField("Armor stats", _sectionLabel);
@@ -121,7 +177,7 @@ public class ItemDataEditor : Editor
             EditorGUILayout.PropertyField(_baseDefense, new GUIContent("Base Defense"));
         }
 
-        if (_type.intValue == 4)
+        if (_typeOfItem.intValue == 4)
         {
             EditorGUILayout.Space(5);
             EditorGUILayout.LabelField("Ressources amount", _sectionLabel);
