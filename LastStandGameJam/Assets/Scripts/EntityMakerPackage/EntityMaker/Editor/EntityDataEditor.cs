@@ -29,6 +29,7 @@ public class EntityDataEditor : Editor
     private SerializedProperty _rangedAccuracyBonus;
     private SerializedProperty _meleeAccuracyBonus;
 
+    private SerializedProperty _priorityTarget;
     private SerializedProperty _battleCry;
     private SerializedProperty _abilities;
     private SerializedProperty _traits;
@@ -81,6 +82,7 @@ public class EntityDataEditor : Editor
         _rangedAccuracyBonus = serializedObject.FindProperty("_rangedAccuracyBonus");
         _meleeAccuracyBonus = serializedObject.FindProperty("_meleeAccuracyBonus");
 
+        _priorityTarget = serializedObject.FindProperty("_priorityTarget");
         _battleCry = serializedObject.FindProperty("_battleCry");
         _abilities = serializedObject.FindProperty("_abilities");
         _traits = serializedObject.FindProperty("_traits");
@@ -258,12 +260,15 @@ public class EntityDataEditor : Editor
                 RandomStats();
             }
 
+            EditorGUILayout.Space(5);
+            EditorGUILayout.PropertyField(_priorityTarget, new GUIContent("Target Priorities"));
+
+            EditorGUILayout.Space(5);
+            EditorGUILayout.LabelField("Dialogues", _sectionLabel);
+            EditorGUILayout.PropertyField(_battleCry, new GUIContent("Battle Cry"));
+
             EditorGUI.indentLevel--;
         }
-
-        EditorGUILayout.Space(10);
-        EditorGUILayout.LabelField("Dialogues", _sectionLabel);
-        EditorGUILayout.PropertyField(_battleCry, new GUIContent("Battle Cry"));
 
         EditorGUILayout.Space(10);
         EditorGUILayout.LabelField("Passives and Actives", _sectionLabel);

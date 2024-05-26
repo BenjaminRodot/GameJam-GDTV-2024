@@ -102,6 +102,7 @@ MonoBehaviour:
   vfxSparks: {fileID: 7704732005798426872, guid: 5497be47ad4ebe840b10851d50cbe6a8, type: 3}
   vfxFire: {fileID: 1397655406183475179, guid: 1fbadfbb7238f82459a7bd2fb8f3c43a, type: 3}
   vfxSmoke: {fileID: 5214257421525591782, guid: cf9722fc8df436f4695aaaa9b7ea711c, type: 3}
+  _bulletDamage: 6
 --- !u!54 &6212713462261519601
 Rigidbody:
   m_ObjectHideFlags: 0

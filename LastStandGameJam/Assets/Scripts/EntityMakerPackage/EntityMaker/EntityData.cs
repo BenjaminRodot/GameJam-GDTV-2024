@@ -51,6 +51,8 @@ public class EntityData : ScriptableObject
     private float _meleeAccuracyBonus = 1f;
 
     [SerializeField]
+    private GameObject[] _priorityTarget;
+    [SerializeField]
     [Tooltip("Speaks dialogue when entering combat.")]
     [TextArea()]
     private string _battleCry = "...";
@@ -86,6 +88,7 @@ public class EntityData : ScriptableObject
     public float RangedAccuracyBonus => _rangedAccuracyBonus;
     public float MeleeAccuracyBonus => _meleeAccuracyBonus;
 
+    public GameObject[] PriorityTarget => _priorityTarget;
     public string BattleCry => _battleCry;
 
     public EntityAbility[] Abilities => _abilities;
