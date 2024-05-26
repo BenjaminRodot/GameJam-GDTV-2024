@@ -51,3 +51,8 @@ https://assetstore.unity.com/packages/3d/environments/industrial/the-wasteland-l
 https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-construction-kit-modular-159280
 https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-doors-162876
 https://assetstore.unity.com/packages/3d/environments/industrial/rpg-fps-game-assets-for-pc-mobile-industrial-set-v3-0-101429
+
+Sound :
+https://assetstore.unity.com/packages/audio/sound-fx/foley/footsteps-essentials-189879
+https://assetstore.unity.com/packages/audio/music/military-shooter-music-pack-219907
+https://freesound.org/people/morganpurkis/sounds/396316/
