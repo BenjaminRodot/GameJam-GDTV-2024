@@ -26,6 +26,9 @@ public class ThirdPersonShooterController : MonoBehaviour
     private Vector3 mouseWorldPosition;
     private Vector2 screenCenterPoint;
 
+    [Header("Useful Bool")]
+    [Tooltip("If you're on top of a pickable item, should turn true")]
+    public bool CanPickItem = false;
 
     private void Awake()
     {
@@ -97,7 +100,7 @@ public class ThirdPersonShooterController : MonoBehaviour
 
     private void checkInteract()
     {
-        if(starterAssetsInputs.interaction)
+        if(starterAssetsInputs.interaction && CanPickItem)
         {
             Debug.Log("Interaction ta maman");
             animator.SetTrigger("Pickup");
