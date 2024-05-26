@@ -154,7 +154,6 @@ public class ThirdPersonShooterController : MonoBehaviour
     {
         if (starterAssetsInputs.grenade)
         {
-            //Do grenade shit
             animator.SetTrigger("Grenade");
             starterAssetsInputs.grenade = false;
 
