@@ -4,10 +4,10 @@
 public class Rikayon : MonoBehaviour {
 
     public Animator animator;
-    private bool _currentAttack = false;
-    private bool _currentDead = false;
-    private bool _currentDamaged = false;
-    private bool _currentWalk = false;
+    [SerializeField] private bool _currentAttack = false;
+    [SerializeField] private bool _currentDead = false;
+    [SerializeField] private bool _currentDamaged = false;
+    [SerializeField] private bool _currentWalk = false;
 	public void Attack1()
 	{
         if (!_currentAttack)

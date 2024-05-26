@@ -41,6 +41,7 @@ public class ThirdPersonShooterController : MonoBehaviour
         screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
         checkAim();
         checkShoot();
+        checkInteract();
     }
 
     private void checkAim()
@@ -92,5 +93,20 @@ public class ThirdPersonShooterController : MonoBehaviour
         {
             starterAssetsInputs.shoot = false;
         }
+    }
+
+    private void checkInteract()
+    {
+        if(starterAssetsInputs.interaction)
+        {
+            Debug.Log("Interaction ta maman");
+            animator.SetTrigger("Pickup");
+            starterAssetsInputs.interaction = false;
+        }
+    }
+
+    public void EndPickup()
+    {
+        Debug.Log("Fin de l'animation de pickup");
     }
 }
