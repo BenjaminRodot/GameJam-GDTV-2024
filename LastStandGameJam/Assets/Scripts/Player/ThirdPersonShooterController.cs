@@ -26,6 +26,12 @@ public class ThirdPersonShooterController : MonoBehaviour
     private Vector3 mouseWorldPosition;
     private Vector2 screenCenterPoint;
 
+    [Header("Useful Bool")]
+    [Tooltip("If you're on top of a pickable item, should turn true")]
+    public bool CanPickItem = false;
+
+    [Header("Outside infos known by the player")]
+    public PickableItem itemOnGroundLevel;
 
     private void Awake()
     {
@@ -41,6 +47,7 @@ public class ThirdPersonShooterController : MonoBehaviour
         screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
         checkAim();
         checkShoot();
+        checkInteract();
     }
 
     private void checkAim()
@@ -92,5 +99,20 @@ public class ThirdPersonShooterController : MonoBehaviour
         {
             starterAssetsInputs.shoot = false;
         }
+    }
+
+    private void checkInteract()
+    {
+        if(starterAssetsInputs.interaction && CanPickItem)
+        {
+            Debug.Log("Interaction ta maman");
+            animator.SetTrigger("Pickup");
+            starterAssetsInputs.interaction = false;
+        }
+    }
+
+    public void EndPickup()
+    {
+        Debug.Log("Fin de l'animation de pickup");
     }
 }
