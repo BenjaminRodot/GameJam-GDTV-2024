@@ -57,3 +57,6 @@ https://assetstore.unity.com/packages/audio/sound-fx/foley/footsteps-essentials-
 https://assetstore.unity.com/packages/audio/music/military-shooter-music-pack-219907
 https://freesound.org/people/morganpurkis/sounds/396316/
 https://www.soundsnap.com/tags/alien?filteredTags=bW9uc3Rlcg%3D%3D
+https://freesound.org/people/SgtFlexxx/sounds/647556/
+https://assetstore.unity.com/packages/audio/ambient/sci-fi/pursuit-of-the-death-42965
+https://assetstore.unity.com/packages/audio/music/free-music-and-sfx-collection-4369
