@@ -20,6 +20,10 @@ public class ThirdPersonShooterController : MonoBehaviour
 
     [SerializeField] private LineRenderer laser;
 
+    [SerializeField] private GameObject _grenadePrefab;
+    [SerializeField] private float angle = 45;
+    [SerializeField] private float grenadeSpeed = 1;
+
     private ThirdPersonController thirdPersonController;
     private StarterAssetsInputs starterAssetsInputs;
     private Animator animator;
@@ -154,7 +158,6 @@ public class ThirdPersonShooterController : MonoBehaviour
     {
         if (starterAssetsInputs.grenade)
         {
-            //Do grenade shit
             animator.SetTrigger("Grenade");
             starterAssetsInputs.grenade = false;
 
@@ -168,6 +171,15 @@ public class ThirdPersonShooterController : MonoBehaviour
 
             transform.forward = aimDirection;
         }
+    }
+
+    public void LauchGrenade()
+    {
+        Vector3 positionMain = new Vector3(-0.281f, 2.029f, 0.52f);
+        Quaternion rotationMain = new Quaternion(0, 0, 0, 0);
+        GameObject newGrenade = Instantiate(_grenadePrefab, transform.position+positionMain, rotationMain);
+        Debug.Log(newGrenade.transform.position);
+        newGrenade.GetComponent<GrenadeProjectile>().Launch(angle, grenadeSpeed * 5, transform.rotation.eulerAngles.y);
     }
 
     public void EndPickup()

@@ -99215,4 +99215,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 2
+    functionName: LauchGrenade
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: eecb73474c16c1e4fa43ba4e1d5ed7c2, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
