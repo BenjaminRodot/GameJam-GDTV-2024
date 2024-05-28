@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private ItemData stats;
 
-    // Update is called once per frame
-    void Update()
+    public float rateOfFire, reloadTime, range, spread;
+
+    public int damage, magazineSize, bulletPerShot, pelletsPerShot;
+
+    private void Awake()
     {
-        
+        damage = stats.BaseDamage;
+        magazineSize= stats.BaseMagazineSize;
+        bulletPerShot = stats.BaseBulletsPerShot;
+        pelletsPerShot = stats.BasePelletsPerShot;
+        rateOfFire = stats.RateOfFire;
+        reloadTime = stats.ReloadSpeed;
+        range = stats.BaseRange;
+        spread = stats.Spread;
     }
 }

@@ -19,6 +19,7 @@ public class ThirdPersonShooterController : MonoBehaviour
     [SerializeField] private Transform spawnBulletPosition;
 
     [SerializeField] private LineRenderer laser;
+    [SerializeField] private GunHolsterController gunHolsterController;
 
     [SerializeField] private GameObject _grenadePrefab;
     [SerializeField] private float angle = 45;
@@ -37,6 +38,10 @@ public class ThirdPersonShooterController : MonoBehaviour
 
     [Tooltip("If you are near an opeanable door")]
     public bool CanOpenDoor = false;
+
+    public bool Shooting;
+
+    public bool Reloading;
 
     [Header("Outside infos known by the player")]
     public PickableItem itemNearPlayer;

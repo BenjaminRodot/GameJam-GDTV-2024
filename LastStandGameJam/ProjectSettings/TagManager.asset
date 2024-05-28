@@ -6,6 +6,10 @@ TagManager:
   tags:
   - CinemachineTarget
   - Gate
+  - Weapon
+  - Rifle
+  - Shotgun
+  - Sniper
   layers:
   - Default
   - TransparentFX
