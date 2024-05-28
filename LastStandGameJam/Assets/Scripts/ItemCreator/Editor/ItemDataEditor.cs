@@ -26,6 +26,7 @@ public class ItemDataEditor : Editor
     public SerializedProperty _rateOfFire;
     public SerializedProperty _firingCooldown;
     public SerializedProperty _spread;
+    public SerializedProperty _reloadSpeed;
     public SerializedProperty _weaponShootingType;
 
     private SerializedProperty _baseDefense;
@@ -74,6 +75,7 @@ public class ItemDataEditor : Editor
         _rateOfFire = serializedObject.FindProperty("_rateOfFire");
         _firingCooldown = serializedObject.FindProperty("_firingCooldown");
         _spread = serializedObject.FindProperty("_spread");
+        _reloadSpeed = serializedObject.FindProperty("_reloadSpeed");
         _weaponShootingType = serializedObject.FindProperty("_weaponShootingType");
 
         //armor
@@ -145,6 +147,7 @@ public class ItemDataEditor : Editor
                     EditorGUILayout.PropertyField(_rateOfFire, new GUIContent("Rate of fire"));
                     EditorGUILayout.PropertyField(_firingCooldown, new GUIContent("Cooldown between shots"));
                     EditorGUILayout.PropertyField(_spread, new GUIContent("Amount of spread"));
+                    EditorGUILayout.PropertyField(_reloadSpeed, new GUIContent("Reload speed"));
                     EditorGUILayout.PropertyField(_weaponShootingType, new GUIContent("Type of shooting"));
 
                     EditorGUILayout.PropertyField(_shootingAudio, new GUIContent("Sound while shooting"));
