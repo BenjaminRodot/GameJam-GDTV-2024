@@ -36,6 +36,8 @@ Dernier soldat de l'armée, on est le dernier rempart pour les survivants qui do
 Le joueur commence dans un coin de la map, le mothership lui dit qu'il doit rester en vie pour que les derniers survivants puissent évacuer. Après la 1ere vague, le mothership trouve la position d'une amélioration (semi-tuto pour intéragir, voir carte...). Vague suivante, le mothership dit avoir trouver de quoi nous aider pour défendre le camp mais à besoin d'un peu de temps. 3e vague, le mothership à trouver le code d'accès du bunker, mais nous ordonne de nous dépêcher, quelques choses d'énorme approche.
 
 ## Reference Asset
+Scripts:
+https://assetstore.unity.com/packages/essentials/starter-assets-thirdperson-updates-in-new-charactercontroller-pa-196526
 
 Turret :
 https://assetstore.unity.com/packages/3d/environments/sci-fi/tower-defence-sci-fi-turret-free-246331
@@ -45,6 +47,11 @@ https://assetstore.unity.com/packages/3d/characters/insectoid-crab-monster-lurke
 
 Player :
 https://assetstore.unity.com/packages/3d/characters/humanoids/sci-fi/sci-fi-space-soldier-polygonr-66384
+
+Weapons :
+https://assetstore.unity.com/packages/3d/props/weapons/mac-sci-fi-sniper-rifle-188585
+https://assetstore.unity.com/packages/3d/props/guns/shotgun-sci-fi-weapon-100194
+https://assetstore.unity.com/packages/3d/props/weapons/sci-fi-grenade-223061
 
 Terrain :
 https://assetstore.unity.com/packages/3d/environments/industrial/the-wasteland-lite-73054
