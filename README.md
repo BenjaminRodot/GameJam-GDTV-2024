@@ -49,21 +49,21 @@ Player :
 https://assetstore.unity.com/packages/3d/characters/humanoids/sci-fi/sci-fi-space-soldier-polygonr-66384
 
 Weapons :
-https://assetstore.unity.com/packages/3d/props/weapons/mac-sci-fi-sniper-rifle-188585
-https://assetstore.unity.com/packages/3d/props/guns/shotgun-sci-fi-weapon-100194
+https://assetstore.unity.com/packages/3d/props/weapons/mac-sci-fi-sniper-rifle-188585 \
+https://assetstore.unity.com/packages/3d/props/guns/shotgun-sci-fi-weapon-100194 \
 https://assetstore.unity.com/packages/3d/props/weapons/sci-fi-grenade-223061
 
 Terrain :
-https://assetstore.unity.com/packages/3d/environments/industrial/the-wasteland-lite-73054
-https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-construction-kit-modular-159280
-https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-doors-162876
+https://assetstore.unity.com/packages/3d/environments/industrial/the-wasteland-lite-73054 \
+https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-construction-kit-modular-159280 \
+https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-doors-162876 \
 https://assetstore.unity.com/packages/3d/environments/industrial/rpg-fps-game-assets-for-pc-mobile-industrial-set-v3-0-101429
 
 Sound :
-https://assetstore.unity.com/packages/audio/sound-fx/foley/footsteps-essentials-189879
-https://assetstore.unity.com/packages/audio/music/military-shooter-music-pack-219907
-https://freesound.org/people/morganpurkis/sounds/396316/
-https://www.soundsnap.com/tags/alien?filteredTags=bW9uc3Rlcg%3D%3D
-https://freesound.org/people/SgtFlexxx/sounds/647556/
-https://assetstore.unity.com/packages/audio/ambient/sci-fi/pursuit-of-the-death-42965
-https://assetstore.unity.com/packages/audio/music/free-music-and-sfx-collection-4369
+https://assetstore.unity.com/packages/audio/sound-fx/foley/footsteps-essentials-189879 \
+https://assetstore.unity.com/packages/audio/music/military-shooter-music-pack-219907 \
+https://freesound.org/people/morganpurkis/sounds/396316/ \
+https://www.soundsnap.com/tags/alien?filteredTags=bW9uc3Rlcg%3D%3D \
+https://freesound.org/people/SgtFlexxx/sounds/647556/ \
+https://assetstore.unity.com/packages/audio/ambient/sci-fi/pursuit-of-the-death-42965 \
+https://assetstore.unity.com/packages/audio/music/free-music-and-sfx-collection-4369 
