@@ -13,8 +13,8 @@ public class EntityData : ScriptableObject
     [Tooltip("Can the entity drop items on death.")]
     private bool _canDropItems = false;
     [SerializeField]
-    [Range(0, 100)]
-    private float _chanceToDropItem = 0.5f;
+    [Tooltip("Are drops based on chance or simply drops the entity's inventory.")]
+    private LootType _dropType = LootType.LootTable;
     [SerializeField]
     [Tooltip("Range size where the monster will see the player.")]
     private float _rangeOfAwareness = 3f;
@@ -63,12 +63,15 @@ public class EntityData : ScriptableObject
     private EntityTrait[] _traits;
 
     [SerializeField]
+    private LootTableItem[] _lootTableItemList;
+    [SerializeField]
     private ItemData[] _weaponList;
 
     public string Name => _name;
     public EntityType EntityType => _entityType;
     public bool CanDropItems => _canDropItems;
-    public float ChanceToDropItem => _chanceToDropItem;
+
+    public LootType DropType => _dropType;
     public float RangeOfAwareness => _rangeOfAwareness;
     public bool CanEnterCombat => _canEnterCombat;
 
@@ -93,5 +96,7 @@ public class EntityData : ScriptableObject
 
     public EntityAbility[] Abilities => _abilities;
     public EntityTrait[] Traits => _traits;
+
+    public LootTableItem[] LootTableItemList => _lootTableItemList;
     public ItemData[] WeaponList => _weaponList;
 }
