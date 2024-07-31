@@ -19,6 +19,7 @@ public class ThirdPersonShooterController : MonoBehaviour
     [SerializeField] private Transform spawnBulletPosition;
 
     [SerializeField] private LineRenderer laser;
+    [SerializeField] private GunHolsterController gunHolsterController;
 
     [SerializeField] private GameObject _grenadePrefab;
     [SerializeField] private float angle = 45;
@@ -37,6 +38,10 @@ public class ThirdPersonShooterController : MonoBehaviour
 
     [Tooltip("If you are near an opeanable door")]
     public bool CanOpenDoor = false;
+
+    public bool Shooting;
+
+    public bool Reloading;
 
     [Header("Outside infos known by the player")]
     public PickableItem itemNearPlayer;
@@ -105,13 +110,17 @@ public class ThirdPersonShooterController : MonoBehaviour
             Instantiate(bulletProjectile, spawnBulletPosition.position,Quaternion.LookRotation(aimDirection,Vector3.up));
             starterAssetsInputs.shoot = false;
 
+            animator.SetTrigger("Shoot");
+            animator.SetFloat("X", starterAssetsInputs.move.x);
+            animator.SetFloat("Y", starterAssetsInputs.move.y);
+
 
             thirdPersonController.SetRotateOnMove(false);
             Vector3 worldAimTarget = mouseWorldPosition;
             worldAimTarget.y = transform.position.y;
             aimDirection = (worldAimTarget - transform.position).normalized;
 
-            transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
+            transform.forward = aimDirection;
         }
     }
 
@@ -156,6 +165,9 @@ public class ThirdPersonShooterController : MonoBehaviour
         {
             animator.SetTrigger("Grenade");
             starterAssetsInputs.grenade = false;
+
+            animator.SetFloat("X", starterAssetsInputs.move.x);
+            animator.SetFloat("Y", starterAssetsInputs.move.y);
 
             thirdPersonController.SetRotateOnMove(false);
             Vector3 worldAimTarget = mouseWorldPosition;

@@ -46,6 +46,8 @@ public class ItemData : ScriptableObject
     [SerializeField]
     private float _spread = 1;
     [SerializeField]
+    private float _reloadSpeed = 1;
+    [SerializeField]
     private ShootingType _weaponShootingType = ShootingType.Single;
     
     [SerializeField]
@@ -79,6 +81,8 @@ public class ItemData : ScriptableObject
     public float RateOfFire => _rateOfFire;
     public float FiringCooldown => _firingCooldown;
     public float Spread => _spread;
+
+    public float ReloadSpeed => _reloadSpeed;
     public ShootingType WeaponShootingType => _weaponShootingType;
 
     public int BaseDefense => _baseDefense;

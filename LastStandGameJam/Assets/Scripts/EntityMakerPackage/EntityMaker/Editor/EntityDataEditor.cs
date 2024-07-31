@@ -9,7 +9,7 @@ public class EntityDataEditor : Editor
     private SerializedProperty _name;
     private SerializedProperty _entityType;
     private SerializedProperty _canDropItems;
-    private SerializedProperty _chanceToDropItem;
+    private SerializedProperty _dropType;
     private SerializedProperty _rangeOfAwareness;
     private SerializedProperty _canEnterCombat;
 
@@ -33,6 +33,7 @@ public class EntityDataEditor : Editor
     private SerializedProperty _battleCry;
     private SerializedProperty _abilities;
     private SerializedProperty _traits;
+    private SerializedProperty _lootTableItemList;
     private SerializedProperty _weaponList;
 
     private GUIStyle _sectionLabel;
@@ -64,7 +65,7 @@ public class EntityDataEditor : Editor
         _canEnterCombat = serializedObject.FindProperty("_canEnterCombat");
 
         _canDropItems = serializedObject.FindProperty("_canDropItems");
-        _chanceToDropItem = serializedObject.FindProperty("_chanceToDropItem");
+        _dropType = serializedObject.FindProperty("_dropType");
 
         _strengh = serializedObject.FindProperty("_strengh");
         _agility = serializedObject.FindProperty("_agility");
@@ -86,6 +87,7 @@ public class EntityDataEditor : Editor
         _battleCry = serializedObject.FindProperty("_battleCry");
         _abilities = serializedObject.FindProperty("_abilities");
         _traits = serializedObject.FindProperty("_traits");
+        _lootTableItemList = serializedObject.FindProperty("_lootTableItemList");
         _weaponList = serializedObject.FindProperty("_weaponList");
     }
 
@@ -120,12 +122,7 @@ public class EntityDataEditor : Editor
         EditorGUILayout.PropertyField(_canDropItems, new GUIContent("Can drop items?"));
         if(_canDropItems.boolValue)
         {
-            EditorGUILayout.LabelField("Chance to drop item");
-            _chanceToDropItem.floatValue = EditorGUILayout.Slider(
-                        _chanceToDropItem.floatValue,
-                        0,
-                        100
-                );
+            EditorGUILayout.PropertyField(_dropType, new GUIContent("Type of drops"));
         }
         EditorGUILayout.Space(5);
         //EditorGUILayout.PropertyField(_rangeOfAwareness, new GUIContent("Range of awareness"));
@@ -278,10 +275,20 @@ public class EntityDataEditor : Editor
         EditorGUILayout.Space(5);
         EditorGUILayout.PropertyField(_traits, new GUIContent("Traits"));
 
-        EditorGUILayout.Space(10);
-        EditorGUILayout.LabelField("Inventory", _sectionLabel);
-        EditorGUILayout.Space(5);
-        EditorGUILayout.PropertyField(_weaponList, new GUIContent("Weapons"));
+        if (_dropType.intValue == 0)
+        {
+            EditorGUILayout.Space(10);
+            EditorGUILayout.LabelField("Loot Table", _sectionLabel);
+            EditorGUILayout.Space(5);
+            EditorGUILayout.PropertyField(_lootTableItemList, new GUIContent("Item list"));
+        }
+        else
+        {
+            EditorGUILayout.Space(10);
+            EditorGUILayout.LabelField("Inventory", _sectionLabel);
+            EditorGUILayout.Space(5);
+            EditorGUILayout.PropertyField(_weaponList, new GUIContent("Weapons"));
+        }
 
         serializedObject.ApplyModifiedProperties();
     }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2728976659988009572}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ruin1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,6 +56,10 @@ PrefabInstance:
     - target: {fileID: 188420, guid: 8e680f175229ca447a8662e760e42fd4, type: 3}
       propertyPath: m_Name
       value: Wall_Broken_1C2
+      objectReference: {fileID: 0}
+    - target: {fileID: 188420, guid: 8e680f175229ca447a8662e760e42fd4, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 416134, guid: 8e680f175229ca447a8662e760e42fd4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -119,6 +123,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Broken_1C2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 188420, guid: 8e680f175229ca447a8662e760e42fd4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 416134, guid: 8e680f175229ca447a8662e760e42fd4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.159999
@@ -180,6 +188,10 @@ PrefabInstance:
     - target: {fileID: 194650, guid: 5919c1f5d354f5d48a0b2cfbeeca8208, type: 3}
       propertyPath: m_Name
       value: Wall_1A3
+      objectReference: {fileID: 0}
+    - target: {fileID: 194650, guid: 5919c1f5d354f5d48a0b2cfbeeca8208, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 430194, guid: 5919c1f5d354f5d48a0b2cfbeeca8208, type: 3}
       propertyPath: m_LocalPosition.x
@@ -243,6 +255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Broken_1C2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 188420, guid: 8e680f175229ca447a8662e760e42fd4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 416134, guid: 8e680f175229ca447a8662e760e42fd4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.066
@@ -304,6 +320,10 @@ PrefabInstance:
     - target: {fileID: 148772, guid: 2c65a692cb7f670478afdb5e61a28bfc, type: 3}
       propertyPath: m_Name
       value: Concrete_Block_1A2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 148772, guid: 2c65a692cb7f670478afdb5e61a28bfc, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 452880, guid: 2c65a692cb7f670478afdb5e61a28bfc, type: 3}
       propertyPath: m_LocalScale.x
@@ -375,6 +395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Broken_1A
       objectReference: {fileID: 0}
+    - target: {fileID: 111656, guid: a7f075050e7029c4094ff78b6e67b49e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 446616, guid: a7f075050e7029c4094ff78b6e67b49e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.4140005
@@ -436,6 +460,10 @@ PrefabInstance:
     - target: {fileID: 110882, guid: b370c829c7f46ea43bb9e72791b17a73, type: 3}
       propertyPath: m_Name
       value: Wall_Broken_1A2
+      objectReference: {fileID: 0}
+    - target: {fileID: 110882, guid: b370c829c7f46ea43bb9e72791b17a73, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 469092, guid: b370c829c7f46ea43bb9e72791b17a73, type: 3}
       propertyPath: m_LocalPosition.x
@@ -499,6 +527,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Broken_1C2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 188420, guid: 8e680f175229ca447a8662e760e42fd4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 416134, guid: 8e680f175229ca447a8662e760e42fd4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.188
@@ -560,6 +592,10 @@ PrefabInstance:
     - target: {fileID: 181896, guid: a2cc6077b84c5e947908f486a6a2ba14, type: 3}
       propertyPath: m_Name
       value: Wall_1A
+      objectReference: {fileID: 0}
+    - target: {fileID: 181896, guid: a2cc6077b84c5e947908f486a6a2ba14, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 472618, guid: a2cc6077b84c5e947908f486a6a2ba14, type: 3}
       propertyPath: m_LocalPosition.x
@@ -623,6 +659,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Broken_1C
       objectReference: {fileID: 0}
+    - target: {fileID: 184164, guid: c19e9008f625e8c46854b90fa19a5501, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 487096, guid: c19e9008f625e8c46854b90fa19a5501, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.166999
@@ -684,6 +724,10 @@ PrefabInstance:
     - target: {fileID: 154034, guid: 9188afdc5a57f3449a6e4b352b4f03ac, type: 3}
       propertyPath: m_Name
       value: Wall_1A_Window_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 154034, guid: 9188afdc5a57f3449a6e4b352b4f03ac, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 401288, guid: 9188afdc5a57f3449a6e4b352b4f03ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -747,6 +791,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Broken_1C2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 188420, guid: 8e680f175229ca447a8662e760e42fd4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 416134, guid: 8e680f175229ca447a8662e760e42fd4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.5349998
@@ -808,6 +856,10 @@ PrefabInstance:
     - target: {fileID: 148772, guid: 2c65a692cb7f670478afdb5e61a28bfc, type: 3}
       propertyPath: m_Name
       value: Concrete_Block_1A2
+      objectReference: {fileID: 0}
+    - target: {fileID: 148772, guid: 2c65a692cb7f670478afdb5e61a28bfc, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 452880, guid: 2c65a692cb7f670478afdb5e61a28bfc, type: 3}
       propertyPath: m_LocalScale.x
@@ -878,6 +930,10 @@ PrefabInstance:
     - target: {fileID: 134702, guid: 7e658c44acb2ef74599c7afd684ef48b, type: 3}
       propertyPath: m_Name
       value: Wall_Broken_1B2
+      objectReference: {fileID: 0}
+    - target: {fileID: 134702, guid: 7e658c44acb2ef74599c7afd684ef48b, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 490070, guid: 7e658c44acb2ef74599c7afd684ef48b, type: 3}
       propertyPath: m_LocalPosition.x
